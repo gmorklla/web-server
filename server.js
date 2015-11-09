@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var PUERTO = 3000;
+var PORT = 3000;
 
 var middleware = {
 	requireAuthentication: function (req, res, next) {
@@ -16,11 +16,11 @@ var middleware = {
 app.use(middleware.logger);
 
 app.get('/about', middleware.requireAuthentication, function (req, res) {
-	res.send('About us');
+	res.send('About us!');
 });
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(PUERTO, function () {
-	console.log('Servidor Express ha comensado en el puerto: ' + PUERTO);
+app.listen(PORT, function () {
+	console.log('Servidor Express ha comensado en el puerto: ' + PORT);
 });
